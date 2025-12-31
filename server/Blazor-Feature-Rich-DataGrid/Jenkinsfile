@@ -1,0 +1,57 @@
+#!groovy
+
+node(isProtectedBranch() ? 'BlazorComponent' : 'BlazorComponents') {
+    deleteDir();
+    stage('Import') {
+        try {
+            git url: 'https://gitea.syncfusion.com/essential-studio/ej2-groovy-scripts.git', branch: 'master', credentialsId: env.GiteaCredentialID;
+            blazor = load 'src/blazor.groovy';
+        }
+        catch (Exception e){
+            deleteDir();
+            error(e);   
+        }
+    }
+    stage('Checkout') {
+        try {
+            checkout scm;
+        }
+        catch (Exception e){
+            deleteDir();
+            error(e);   
+        }
+    }
+
+    stage('Workflow Validation') {
+        blazor.getProjectDetails();
+        blazor.githubCommitStatus('running');
+        blazor.validateMRDescription();
+    }
+
+        stage('Install') {
+            try {
+                blazor.install();
+            }
+            catch (Exception e){
+                deleteDir();
+                error(e);
+            }
+        }
+    
+        stage('Build') {
+            try{
+                echo "Starting 'ci-compile'"
+                 blazor.runShell('dotnet build BlazorGrid.csproj');
+            }
+            catch (Exception e){
+                deleteDir();
+                error(e);
+            }
+        }
+    echo "Finished 'ci-compile'"
+    blazor.githubCommitStatus('success');
+}
+
+def isProtectedBranch() {
+    return env.githubSourceBranch == env.STAGING_BRANCH || String.valueOf(env.githubSourceBranch).startsWith('hotfix/') || String.valueOf(env.githubSourceBranch).startsWith('release/');
+}
