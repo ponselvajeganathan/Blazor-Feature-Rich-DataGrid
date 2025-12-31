@@ -1,0 +1,15 @@
+{
+    "name": "blazor-feature-rich-grid",
+    "version": "1.0.0",
+    "description": "Blazor - Feature Rich Data Grid",
+    "author": "Syncfusion Inc.",
+    "license": "SEE LICENSE IN license",
+    "keywords": [
+        "blazor-feature-rich-datagrid",
+        "feature-rich-datagrid"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitea.syncfusion.com/essential-studio/Blazor-Feature-Rich-Grid.git"
+    }
+}
