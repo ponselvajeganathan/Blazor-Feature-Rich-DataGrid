@@ -1498,7 +1498,7 @@
         ShowColumnMenu="@column_menu" AllowTextWrap="@textwrap" RowHeight="@RowHeightValue">
             <GridEvents Created="GridCreated" Grouped="GroupedHandler" Grouping="GroupingHandler" OnToolbarClick="ToolbarClick" OnActionBegin="ActionBeginHandler" QueryCellInfo="OnQueryCellInfo" OnActionFailure="ActionFailureHandler" TValue="OrderData"></GridEvents>
             <GridSortSettings>
-                <GridSortColumns>
+                <GridSortColumns> 
                     <GridSortColumn Field="OrderID"></GridSortColumn>
                     <GridSortColumn Field="Quantity"></GridSortColumn>
                 </GridSortColumns>
@@ -1691,7 +1691,7 @@
                 </GridAggregate>
             </GridAggregates>
             <GridColumns>
-                <GridColumn Type=ColumnType.CheckBox Visible="@checkboxSelection" Width="40" AllowEditing="false"></GridColumn>
+                <GridColumn Type=ColumnType.CheckBox Visible="@checkboxSelection" AllowResizing="false" Width="40" AllowEditing="false"></GridColumn>
                 <GridColumn Field="OrderID" IsPrimaryKey="true" HeaderText="Order ID" ValidationRules="@(new ValidationRules{ Required=true, Number=true})" HeaderTextAlign="TextAlign.Right" TextAlign="TextAlign.Right" Width="125" MinWidth="55" MaxWidth="150">
                     <FilterTemplate>
                         @if (gridFilterMode == Syncfusion.Blazor.Grids.FilterBarMode.Immediate)
@@ -1819,7 +1819,7 @@
                                                 <span class="e-icons e-day icon"></span>
                                                 <div>Order Date</div>
                                             </div>
-                                            <span style="width:25px;margin-top:5px;">
+                                            <span style="width:33px;margin-top:5px;">
                                                 <SfMenu Items="@singleColumnDate" ShowItemOnClick="true" cssClass="custom-menu-column-date">
                                                     <MenuEvents TValue="MenuFieldData" ItemSelected="SingleColumnDateFormat" Opened="ColumnDateMenuOpen" Closed="ColumnDateMenuClose"></MenuEvents>
                                                     <MenuFieldSettings Text="Value" Children="Options"></MenuFieldSettings>
@@ -1888,7 +1888,7 @@
                                                 <span class="sf-icon-freight"></span>
                                                 <div>Freight</div>
                                             </div>
-                                            <span style="width:25px;margin-top:5px;">
+                                            <span style="width:33px;margin-top:5px;">
                                                 <SfMenu @ref="freightColumnInstance"
                                                 TValue="MenuFieldData"
                                                 ShowItemOnClick="true"
@@ -2009,7 +2009,7 @@
                                             <div style="display: flex;align-items: center;justify-content:@justify;flex: 1;gap: 6px;">
                                                 <div>Ship Address</div>
                                             </div>
-                                            <span style="width:25px;margin-top:5px;">
+                                            <span style="width:33px;margin-top:5px;">
                                                 <SfMenu TValue="MenuFieldData"
                                                 ShowItemOnClick="true"
                                                 Items="@shipAddressSingleColumn"
@@ -2099,7 +2099,7 @@
                                     <span class="e-icons e-check-box icon"></span>
                                     <div>Verified</div>
                                 </div>
-                                <span style="width:25px;margin-top:5px;">
+                                <span style="width:33px;margin-top:5px;">
                                     <SfMenu TValue="MenuFieldData" Items="@singleColumnVerified"
                                     ShowItemOnClick="true"
                                     CssClass="custom-menu-column-verified">
@@ -2373,7 +2373,7 @@
     private bool allowFiltering = true;
     private bool allowGrouping = true;
     private bool allowColumnReordering = true;
-    private bool allowColumnResizing = true;
+    private bool allowColumnResizing = false;
     private bool allowPaging = true;
     private bool immutable = false;
     private bool selection = true;
@@ -2413,8 +2413,8 @@
     private bool FreightEditing = true;
     private bool FreightGrouping = true;
     private bool FreightReordering = true;
-    private bool FreightResizing = true;
-    private bool ShipAddressResizing = true;
+    private bool FreightResizing = false;
+    private bool ShipAddressResizing = false;
     private bool ShipAddressGrouping = true;
     private bool ShipAddressTextWrap = false;
     private bool ShipAddressSearching = false;
