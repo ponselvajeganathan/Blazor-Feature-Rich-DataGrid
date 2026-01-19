@@ -76,7 +76,7 @@ namespace BlazorGrid.Data
                 int randomIndex = rnd.Next(productValues.Length);
                 string statusValue = orderStatus[rnd.Next(orderStatus.Length)];
                 string customer = customerNames[rnd.Next(customerNames.Length)];
-                string gender = femaleNames.Contains(customer) ? "Female" : maleNames.Contains(customer) ? "Male" : "Unknown";
+                string gender = femaleNames.Contains(customer) ? "Female" : "Male";
                 orders.Add(new OrderData
                 {
                     Id = i,

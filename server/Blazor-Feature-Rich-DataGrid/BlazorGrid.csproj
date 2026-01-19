@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Blazor" Version="*" />
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="*" />
+    <PackageReference Include="Syncfusion.Blazor.ProgressBar" Version="*" />
     <PackageReference Include="Syncfusion.Blazor.Themes" Version="*" />
   </ItemGroup>
 

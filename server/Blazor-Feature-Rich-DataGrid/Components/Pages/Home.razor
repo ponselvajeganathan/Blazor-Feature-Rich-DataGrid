@@ -28,6 +28,14 @@
 
 <style>
 
+    .e-bigger .e-grid .e-summarycell {
+       padding: 0px !important;
+    }
+
+    .e-bigger #sumvalues {
+       margin-top: 10px;
+    }
+
     .checkbox-item {
     display: flex;
     align-items: center;
@@ -2926,10 +2934,10 @@
         {"Enable Reordering", "The boolean value that indicates whether users can reorder columns in the Grid by dragging and dropping them. When the Grid is rendered with stacked headers, column reordering is restricted to columns within the same header level."},
         {"Enable Searching", "All columns in the Grid are searchable by default. To disable search for a specific column, set its property to false in the column."},
         {"Enable Resizing", "The boolean value that indicates whether users can adjust the width of a column by dragging its header edge. By default, resizing is allowed for all columns. To disable resizing for a specific column, set its property to false."},
-        { "Enable Sorting", "Enables sorting of grid columns by clicking the sort icon in the column header. The first click sorts the data in ascending order, and subsequent clicks toggle between ascending and descending. To disable sorting for a specific column, set allowSorting to false." },
+        { "Enable Sorting", "Enables sorting of grid columns by clicking the sort icon in the column header. The first click sorts the data in ascending order, and subsequent clicks toggle between ascending and descending. To disable sorting for a specific column, set AllowSorting to false." },
         { "Enable Multi-Column Sorting", "When sorting is enabled, users can sort multiple columns by holding Shift or Ctrl while clicking on the column headers." },
-        { "Enable Filtering", "A boolean value that controls the visibility of the filter bar for all grid columns. Users can customize the filter type using the type property. To disable filtering for a specific column, set its allowFiltering property to false." },
-        { "Enable Grouping", "Enables users to group or ungroup grid columns by dragging headers to the group drop area. To disable grouping for a specific column, set its allowGrouping property to false." },
+        { "Enable Filtering", "A boolean value that controls the visibility of the filter bar for all grid columns. Users can customize the filter type using the type property. To disable filtering for a specific column, set its AllowFiltering property to false." },
+        { "Enable Grouping", "Enables users to group or ungroup grid columns by dragging headers to the group drop area. To disable grouping for a specific column, set its AllowGrouping property to false." },
         { "Show Grouped Column Reordering", "Enables reordering of grouped grid columns in the droping area. To disable reordering for a specific column, set its property to false." },
         { "Enable Paging", "Enables a pager at the footer of the grid, allowing users to navigate through pages of data." },
         { "Enable Immutable Mode", "The enableImmutableMode property is set to true, the grid will reuse old rows if it exists in the new result instead of full refresh while performing the grid actions."} ,
@@ -2980,11 +2988,11 @@
         { "Min", "Displays the smallest value in the column." },
         { "Max", "Displays the largest value in the column." },
         { "Count", "Shows the number of records in the column." },
-        { "Allow selection", "The allowSelection property is set to true, it allows selection of (highlight row) Grid records by clicking it" },
+        { "Allow selection", "The AllowSelection property is set to true, it allows selection of (highlight row) Grid records by clicking it" },
         { "Type", "Specifies the available filtering types, determining how data is filtered in the grid." },
         { "Clip Mode", "Specifies how overflowed cell content is displayed in the grid." },
         { "Freeze", "Specifies the column freeze direction in the grid." },
-        { "Searching", "The allowSearching property is set to false, then it disables Searching of a particular column. By default all columns allow Searching." },
+        { "Searching", "The AllowSearching property is set to false, then it disables Searching of a particular column. By default all columns allow Searching." },
         { "Display as HTML encode", "The disableHtmlEncode property is set to true, it encodes the HTML of the header and content cells." },
         { "Format", "Formats the displayed value without altering the original data. Supports standard and custom number or date formats." },
         { "Group by format", "The enableGroupByFormat property is set to true, then it groups the particular column by formatted values. By default no columns are group by format." },
