@@ -3980,11 +3980,29 @@
     private void SelectedLocalizationValue(string currentValue)
     {
         localizationValue = currentValue;
-        var uri = new Uri(UrlHelper.Uri)
-            .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
-        var query = $"?culture={Uri.EscapeDataString(currentValue)}&" +
-            $"redirectUri={Uri.EscapeDataString(uri)}";
-        UrlHelper.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+        var current = new Uri(UrlHelper.Uri);        
+        var pathAndQuery = current.GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+
+        var path = current.AbsolutePath;
+        const string cultureSegment = "/Culture/SetCulture";
+        if (path.EndsWith(cultureSegment, StringComparison.OrdinalIgnoreCase))
+            path = path[..^cultureSegment.Length];
+
+        if (!path.EndsWith("/", StringComparison.Ordinal))
+            path += "/";       
+
+        var culturePath = $"{path.TrimEnd('/')}{cultureSegment}";
+
+        var setCultureAbsolute = new Uri(new Uri(UrlHelper.BaseUri), culturePath).ToString();
+
+        var uri = QueryHelpers.AddQueryString(setCultureAbsolute, new Dictionary<string, string?>
+            {
+                ["culture"] = currentValue,
+                ["redirectUri"] = pathAndQuery 
+            });
+
+        // Navigate with a full reload so the culture cookie takes effect
+        UrlHelper.NavigateTo(uri, forceLoad: true);
     }
 
     private async Task HandleApplyClick()
