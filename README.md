@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a feature-rich Syncfusion Blazor DataGrid sample application designed to demonstrate multiple DataGrid capabilities within a single project. The solution includes separate implementations for both Blazor Server and Blazor WebAssembly hosting models, enabling developers to explore DataGrid functionality in different Blazor environments. The sample serves as a reference application for understanding how Syncfusion Blazor DataGrid features can be configured and combined within a real-world project structure.
+This repository contains a feature-rich Syncfusion [Blazor DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid) sample application designed to demonstrate multiple DataGrid capabilities within a single project. The solution includes separate implementations for both Blazor Server and Blazor WebAssembly hosting models, enabling developers to explore DataGrid functionality in different Blazor environments. The sample serves as a reference application for understanding how Syncfusion Blazor DataGrid features can be configured and combined within a real-world project structure.
 
 ## Key Features
 
